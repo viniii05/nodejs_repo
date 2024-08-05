@@ -1,25 +1,22 @@
 const http = require('http');
 
 const express = require('express');
-const bodyPerser = require('body-parser')
 
 const app = express();
-app.use(bodyPerser.urlencoded());
-app.use('/add-product',(req,res,next) => {
-    console.log('In the app-product!');
-    res.send('<form action="product" method="POST"><input type="text" name="title"><input type="number" name="size"><button type=""Submit>Add Product</button></form>')
-    next();
+
+const adminRoutes = require('./routes/admin.js');
+const shopRoutes = require('./routes/shop.js');
+
+app.use(express.urlencoded({ extended: false }));
+
+
+app.use(adminRoutes);
+
+app.use(shopRoutes);
+
+app.use((req, res, next) => {
+    res.status(404).send('<h1>404 Page Not Found</h1>');
 });
-
-app.use('/product',(req,res,next)=>{
-    console.log(req.body);
-    res.redirect('/');
-})
-
-app.use('/',(req,res,next) => {
-    console.log('In the second middleware!');
-    res.send('<h1>Hello from express!</h1>');
-})
 
 
 app.listen(3000);
