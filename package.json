@@ -1,0 +1,16 @@
+{
+  "name": "nodejs_cleanedup",
+  "version": "1.0.0",
+  "description": "first project",
+  "main": "routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon task.js",
+    "start-server": "node app.js"
+  },
+  "author": "Vini Tamrakar",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
