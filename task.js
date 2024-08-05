@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyPerser.urlencoded());
 app.use('/add-product',(req,res,next) => {
     console.log('In the app-product!');
-    res.send('<form action="product" method="POST"><input type="text" name="title"><button type=""Submit>Add Product</button></form>')
+    res.send('<form action="product" method="POST"><input type="text" name="title"><input type="number" name="size"><button type=""Submit>Add Product</button></form>')
     next();
 });
 
